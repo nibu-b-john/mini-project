@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>208285833598-0lajto8qnm8jsk8ha962dqaureqonj3j.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.208285833598-0lajto8qnm8jsk8ha962dqaureqonj3j</string>
+	<key>API_KEY</key>
+	<string>AIzaSyDsCq5EHJNxNU60XWWCyCqvxsjVkMvSPhE</string>
+	<key>GCM_SENDER_ID</key>
+	<string>208285833598</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.nemesisHackathon</string>
+	<key>PROJECT_ID</key>
+	<string>nemesis-hack</string>
+	<key>STORAGE_BUCKET</key>
+	<string>nemesis-hack.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:208285833598:ios:106289817b658dc13bbb2f</string>
+</dict>
+</plist>

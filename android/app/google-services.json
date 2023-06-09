@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "208285833598",
+    "project_id": "nemesis-hack",
+    "storage_bucket": "nemesis-hack.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:208285833598:android:d9cfa3ae1057d6cd3bbb2f",
+        "android_client_info": {
+          "package_name": "com.example.nemesis_hackathon"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "208285833598-tpplgb02cbka0bsj0jthhp6q1p6at6gr.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA7_D4Tu-abFkfIYVBY3e0GQpMoIQg9Bts"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "208285833598-tpplgb02cbka0bsj0jthhp6q1p6at6gr.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "208285833598-0lajto8qnm8jsk8ha962dqaureqonj3j.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.nemesisHackathon"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
