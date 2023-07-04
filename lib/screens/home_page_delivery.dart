@@ -57,20 +57,23 @@ class _HomePageDeliveryState extends State<HomePageDelivery> {
                                   long: 76.9717073973738,
                                 )));
                   },
-                  child: const NotiLeaveWidget(
-                    // 9.582355615460715, 76.97034483525111
-                    // day: listOfLeaveForms.getlistForLeaveForm[index].day,
-                    long: 76.97034483525111,
-                    lat: 9.582355615460715,
-                    from: 'Donate',
-                    to: 'Recyclable',
-                    status: 'Hello',
-                    typeOFLeave: 'Hello',
-                    numberOfDays: 15,
-                    checked_periods: [1, 2, 3],
-                    ifDonate: 'Waste',
-                    ifRecylable: 'Recyclable',
-                    time: 'Ordered Time: 15:00 IST',
+                  child: Dismissible(
+                    key: Key('1'),
+                    child: const NotiLeaveWidget(
+                      // 9.582355615460715, 76.97034483525111
+                      // day: listOfLeaveForms.getlistForLeaveForm[index].day,
+                      long: 76.97034483525111,
+                      lat: 9.582355615460715,
+                      from: 'Donate',
+                      to: 'Recyclable',
+                      status: 'Hello',
+                      typeOFLeave: 'Hello',
+                      numberOfDays: 15,
+                      checked_periods: [1, 2, 3],
+                      ifDonate: 'Waste',
+                      ifRecylable: 'Recyclable',
+                      time: 'Ordered Time: 15:00 IST',
+                    ),
                   ),
                 ),
                 SizedBox(
@@ -87,20 +90,23 @@ class _HomePageDeliveryState extends State<HomePageDelivery> {
                                   long: 76.97056254194044,
                                 )));
                   },
-                  child: const NotiLeaveWidget(
-                    // 9.582355615460715, 76.97034483525111
-                    // day: listOfLeaveForms.getlistForLeaveForm[index].day,
-                    long: 76.97056254194044,
-                    lat: 9.58222479412334,
-                    from: 'Donate',
-                    to: 'Recyclable',
-                    status: 'Hello',
-                    typeOFLeave: 'Hello',
-                    numberOfDays: 15,
-                    checked_periods: [1, 2, 3],
-                    ifDonate: 'Waste',
-                    ifRecylable: 'Non-Recyclable',
-                    time: 'Ordered Time: 10:00 IST',
+                  child: Dismissible(
+                    key: Key('2'),
+                    child: const NotiLeaveWidget(
+                      // 9.582355615460715, 76.97034483525111
+                      // day: listOfLeaveForms.getlistForLeaveForm[index].day,
+                      long: 76.97056254194044,
+                      lat: 9.58222479412334,
+                      from: 'Donate',
+                      to: 'Recyclable',
+                      status: 'Hello',
+                      typeOFLeave: 'Hello',
+                      numberOfDays: 15,
+                      checked_periods: [1, 2, 3],
+                      ifDonate: 'Waste',
+                      ifRecylable: 'Non-Recyclable',
+                      time: 'Ordered Time: 10:00 IST',
+                    ),
                   ),
                 ),
                 SizedBox(
@@ -117,20 +123,23 @@ class _HomePageDeliveryState extends State<HomePageDelivery> {
                                   long: 76.97883341101755,
                                 )));
                   },
-                  child: const NotiLeaveWidget(
-                    // 9.582355615460715, 76.97034483525111
-                    // day: listOfLeaveForms.getlistForLeaveForm[index].day,
-                    long: 76.97883341101755,
-                    lat: 9.59371061575105,
-                    from: 'Donate',
-                    to: 'Recyclable',
-                    status: 'Hello',
-                    typeOFLeave: 'Hello',
-                    numberOfDays: 15,
-                    checked_periods: [1, 2, 3],
-                    ifDonate: 'Donate',
-                    ifRecylable: 'Recyclable',
-                    time: 'Ordered Time: 19:00 IST',
+                  child: Dismissible(
+                    key: Key('3'),
+                    child: const NotiLeaveWidget(
+                      // 9.582355615460715, 76.97034483525111
+                      // day: listOfLeaveForms.getlistForLeaveForm[index].day,
+                      long: 76.97883341101755,
+                      lat: 9.59371061575105,
+                      from: 'Donate',
+                      to: 'Recyclable',
+                      status: 'Hello',
+                      typeOFLeave: 'Hello',
+                      numberOfDays: 15,
+                      checked_periods: [1, 2, 3],
+                      ifDonate: 'Donate',
+                      ifRecylable: 'Recyclable',
+                      time: 'Ordered Time: 19:00 IST',
+                    ),
                   ),
                 ),
                 SizedBox(
@@ -147,20 +156,23 @@ class _HomePageDeliveryState extends State<HomePageDelivery> {
                                   long: 76.97877722864789,
                                 )));
                   },
-                  child: const NotiLeaveWidget(
-                    // 9.582355615460715, 76.97034483525111
-                    // day: listOfLeaveForms.getlistForLeaveForm[index].day,
-                    long: 76.97877722864789,
-                    lat: 9.635542990109997,
-                    from: 'Waste',
-                    to: 'Recyclable',
-                    status: 'Hello',
-                    typeOFLeave: 'Hello',
-                    numberOfDays: 15,
-                    checked_periods: [1, 2, 3],
-                    ifDonate: 'Waste',
-                    ifRecylable: 'Recyclable',
-                    time: 'Ordered Time: 03:00 IST',
+                  child: Dismissible(
+                    key: Key('4'),
+                    child: const NotiLeaveWidget(
+                      // 9.582355615460715, 76.97034483525111
+                      // day: listOfLeaveForms.getlistForLeaveForm[index].day,
+                      long: 76.97877722864789,
+                      lat: 9.635542990109997,
+                      from: 'Waste',
+                      to: 'Recyclable',
+                      status: 'Hello',
+                      typeOFLeave: 'Hello',
+                      numberOfDays: 15,
+                      checked_periods: [1, 2, 3],
+                      ifDonate: 'Waste',
+                      ifRecylable: 'Recyclable',
+                      time: 'Ordered Time: 03:00 IST',
+                    ),
                   ),
                 ),
                 SizedBox(

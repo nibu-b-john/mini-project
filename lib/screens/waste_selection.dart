@@ -1,9 +1,14 @@
+import 'dart:developer';
+
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/src/foundation/key.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:nemesis_hackathon/screens/maps.dart';
 
 class WasteSelectionPage extends StatefulWidget {
-  const WasteSelectionPage({Key? key}) : super(key: key);
+  String email;
+  WasteSelectionPage({Key? key, required this.email}) : super(key: key);
 
   @override
   State<WasteSelectionPage> createState() => _WasteSelectionPageState();
@@ -151,7 +156,18 @@ class _WasteSelectionPageState extends State<WasteSelectionPage> {
                       ),
                       GestureDetector(
                         onTap: () {
-                          Navigator.pushNamed(context, '/maps');
+                          // Navigator.pushNamed(context, '/maps');
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => Maps(
+                                        email: widget.email,
+                                        waste_type:
+                                            first_drop ? 'Donate' : 'Waste',
+                                        recyclable_type: second_drop
+                                            ? 'Recyclable'
+                                            : 'Non-Recyclable',
+                                      )));
                         },
                         child: Stack(
                           children: [
@@ -185,7 +201,30 @@ class _WasteSelectionPageState extends State<WasteSelectionPage> {
                               primary: Colors.white,
                             ),
                             onPressed: () {
-                              Navigator.of(context).pushNamed('/addtitle');
+                              final _db = FirebaseFirestore.instance;
+                              _db
+                                  .collection('User')
+                                  .where('email', isEqualTo: widget.email)
+                                  .get()
+                                  .then(
+                                      ((value) => value.docs.forEach((element) {
+                                            log(element.id.toString());
+                                            List<Map<String, dynamic>>
+                                                listoforders = element['list'];
+                                            log(listoforders.toString());
+                                            listoforders.add({
+                                              'waste-type': first_drop
+                                                  ? 'Donate'
+                                                  : 'Waste',
+                                              'recyclable-type': second_drop
+                                                  ? 'Recyclable'
+                                                  : 'Non-Recyclable',
+                                              // "lat":
+                                            });
+                                            element.reference.set({
+                                              'list': ['listoforders']
+                                            });
+                                          })));
                             },
                             child: Row(
                               mainAxisAlignment: MainAxisAlignment.center,

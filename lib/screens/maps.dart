@@ -1,10 +1,20 @@
 import 'dart:async';
 import 'dart:developer';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:location/location.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class Maps extends StatefulWidget {
+  String waste_type;
+  String recyclable_type;
+  String email;
+  Maps(
+      {super.key,
+      required this.waste_type,
+      required this.email,
+      required this.recyclable_type});
+
   @override
   State<Maps> createState() => MapsState();
 }
@@ -12,10 +22,10 @@ class Maps extends StatefulWidget {
 class MapsState extends State<Maps> {
 //Current
   static LocationData? currentLocation;
-
+  late double? latitude;
+  late double? longitude;
   Future<void> getCurrentLocation() async {
     Location location = Location();
-
     location.getLocation().then((location) => {
           setState(() {
             currentLocation = location;
@@ -25,6 +35,8 @@ class MapsState extends State<Maps> {
     location.onLocationChanged.listen((newLoc) {
       currentLocation = newLoc;
     });
+    latitude = currentLocation!.latitude;
+    latitude = currentLocation!.longitude;
     log(currentLocation.toString());
   }
 
@@ -95,20 +107,75 @@ class MapsState extends State<Maps> {
     return Scaffold(
       body: currentLocation == null
           ? Text('Loading')
-          : GoogleMap(
-              markers: {
-                _kGooglePlexMarker1,
-                _kGooglePlexMarker2,
-                _kGooglePlexMarker3,
-                _kGooglePlexMarker4,
-                _kGooglePlexMarker5,
-                _mbc
-              },
-              mapType: MapType.hybrid,
-              initialCameraPosition: _kGooglePlex,
-              onMapCreated: (GoogleMapController controller) {
-                _controller.complete(controller);
-              },
+          : Stack(
+              children: [
+                GoogleMap(
+                  markers: {
+                    _kGooglePlexMarker1,
+                    _kGooglePlexMarker2,
+                    _kGooglePlexMarker3,
+                    _kGooglePlexMarker4,
+                    _kGooglePlexMarker5,
+                    _mbc
+                  },
+                  mapType: MapType.hybrid,
+                  initialCameraPosition: _kGooglePlex,
+                  onMapCreated: (GoogleMapController controller) {
+                    _controller.complete(controller);
+                  },
+                ),
+                Positioned(
+                  bottom: 10,
+                  left: 10,
+                  child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(10)),
+                        primary: Colors.white,
+                      ),
+                      onPressed: () {
+                        final _db = FirebaseFirestore.instance;
+                        _db
+                            .collection('User')
+                            .where('email', isEqualTo: widget.email)
+                            .get()
+                            .then(((value) => value.docs.forEach((element) {
+                                  List<Map<String, dynamic>> listoforders =
+                                      element['list'];
+
+                                  listoforders.add({
+                                    'wasteType': widget.waste_type,
+                                    'recyclableType': widget.recyclable_type,
+                                    "lat": latitude,
+                                    "long": longitude
+                                  });
+
+                                  _db
+                                      .collection('Users')
+                                      .doc(element.id)
+                                      .update({'email': 'ehy'})
+                                      .then((value) => log("User Updated"))
+                                      .catchError((error) =>
+                                          log("Failed to update user: $error"));
+                                  ;
+                                })));
+                        log("Successfully added    0");
+                      },
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: const [
+                          Text(
+                            'Add to bin',
+                            style: TextStyle(color: Colors.black),
+                          ),
+                          Icon(
+                            Icons.handyman,
+                            color: Colors.black,
+                          )
+                        ],
+                      )),
+                ),
+              ],
             ),
       // floatingActionButton: FloatingActionButton.extended(
       //   onPressed: _goToTheLake,

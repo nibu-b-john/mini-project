@@ -15,6 +15,8 @@ import '../screens/profile_delivery.dart';
 //subject
 //period
 class BottomNavBarDelivery extends StatefulWidget {
+  String email;
+  BottomNavBarDelivery({super.key, required this.email});
   @override
   _BottomNavBarDeliveryState createState() => _BottomNavBarDeliveryState();
 }

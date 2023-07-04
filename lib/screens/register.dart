@@ -3,39 +3,29 @@ import 'package:nemesis_hackathon/data/db/firestore_helper.dart';
 import 'package:nemesis_hackathon/data/user_list.dart';
 import 'package:nemesis_hackathon/models.dart/shared_preference.dart';
 import 'package:nemesis_hackathon/models.dart/user_model.dart';
-import 'package:nemesis_hackathon/widgets/bottomNavbarDelivery.dart';
-import 'package:nemesis_hackathon/widgets/bottomNavbar.dart';
 import 'package:provider/provider.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
+
 import '../services/auth.dart';
 import '../widgets/notiLeaveForm.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
 import 'package:flutter/material.dart';
 
-class LoginScreen extends StatefulWidget {
-  LoginScreen({Key? key}) : super(key: key);
+class RegisterScreen extends StatefulWidget {
+  RegisterScreen({Key? key}) : super(key: key);
 
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<RegisterScreen> createState() => _RegisterScreenState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
-  Future<void> signInWithEmailAndPassword(String email, String password) async {
+class _RegisterScreenState extends State<RegisterScreen> {
+  Future<void> createUserWithEmailAndPassword(
+      String email, String password) async {
     try {
-      await Auth().signInWithEmailAndPassword(email: email, password: password);
+      await Auth()
+          .createUserWithEmailAndPassword(email: email, password: password);
 
-      if (_loginPassword.text.contains('delivery')) {
-        Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (context) => BottomNavBarDelivery(email: email)));
-      } else {
-        Navigator.push(
-            context,
-            MaterialPageRoute(
-                builder: (context) => BottomNavBar(email: email)));
-      }
+      Navigator.pushNamed(context, '/login');
     } on FirebaseAuthException catch (e) {
       log(e.toString());
     }
@@ -53,7 +43,7 @@ class _LoginScreenState extends State<LoginScreen> {
     if (!validate) {
       return;
     }
-    signInWithEmailAndPassword(registerNumber, password);
+    createUserWithEmailAndPassword(registerNumber, password);
     // postLoginDetails(registerNumber, password)
     // try {
     //   await Authservice().signInWithEmailAndPassword(
@@ -156,7 +146,7 @@ class _LoginScreenState extends State<LoginScreen> {
                           SizedBox(
                             height: height * 0.012820,
                           ),
-                          const Text('Login',
+                          const Text('Register',
                               style: TextStyle(
                                 // color: Colors.black,
                                 fontSize: 40,
@@ -354,7 +344,7 @@ class _LoginScreenState extends State<LoginScreen> {
                                   //     const BorderSide(color: Colors.black)
                                 ),
                                 child: const Text(
-                                  'LOGIN',
+                                  'Register',
                                   style: TextStyle(
                                     color: Colors.white,
                                   ),
@@ -368,12 +358,12 @@ class _LoginScreenState extends State<LoginScreen> {
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          const Text("Doesn't have an account?"),
+                          const Text("Already have a account?"),
                           GestureDetector(
                               onTap: () {
-                                Navigator.pushNamed(context, '/register');
+                                Navigator.pop(context);
                               },
-                              child: const Text(" Sign Up")),
+                              child: const Text(" Sign In")),
                         ],
                       )
                     ],

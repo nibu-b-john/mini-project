@@ -8,9 +8,9 @@ class firestoreHelper {
 
   static Future<void> createUser(dynamic user) async {
     final userCol = FirebaseFirestore.instance.collection('users');
-    String? conUser = Authservice().currentUser?.uid;
+    // String? conUser = Authservice().currentUser?.uid;
     // log(user.toString());
-    final docRef = userCol.doc(conUser);
+    // final docRef = userCol.doc(conUser);
 
     final newUser = {
       'user_id': user.id,
@@ -22,7 +22,7 @@ class firestoreHelper {
     };
 
     try {
-      await docRef.set(newUser);
+      // await docRef.set(newUser);
       print(json);
     } catch (e) {
       print('Error: $e');
@@ -31,15 +31,15 @@ class firestoreHelper {
 
   static Future<dynamic> readUser() async {
     Map<String, dynamic>? ndata;
-    String? conUser = Authservice().currentUser?.uid;
-    await FirebaseFirestore.instance
-        .collection('users')
-        .doc(conUser)
-        .get()
-        .then((value) => {ndata = value.data()})
-        .catchError((error) =>
-            {print("Error on get data from User"), print(error.toString())});
-    // print(ndata);
+    // String? conUser = Authservice().currentUser?.uid;
+    // await FirebaseFirestore.instance
+    //     .collection('users')
+    //     .doc(conUser)
+    //     .get()
+    //     .then((value) => {ndata = value.data()})
+    //     .catchError((error) =>
+    //         {print("Error on get data from User"), print(error.toString())});
+    // // print(ndata);
     return ndata;
   }
 
@@ -47,9 +47,9 @@ class firestoreHelper {
 
   static Future<void> createLister(dynamic user) async {
     final userCol = FirebaseFirestore.instance.collection('listers');
-    String? conUser = Authservice().currentUser?.uid;
+    // String? conUser = Authservice().currentUser?.uid;
     // log(user.toString());
-    final docRef = userCol.doc(conUser);
+    // final docRef = userCol.doc(conUser);
 
     final newUser = {
       'name': user.name,
@@ -60,7 +60,7 @@ class firestoreHelper {
     };
 
     try {
-      await docRef.set(newUser);
+      // await docRef.set(newUser);
       print(json);
     } catch (e) {
       print('Error: $e');
@@ -69,12 +69,12 @@ class firestoreHelper {
 
   static Future<void> readLister() async {
     Map<String, dynamic>? ndata;
-    String? conUser = Authservice().currentUser?.uid;
+    // String? conUser = Authservice().currentUser?.uid;
     await FirebaseFirestore.instance
         .collection('listers')
-        .doc(conUser)
+        // .doc(conUser)
         .get()
-        .then((value) => {ndata = value.data()})
+        // .then((value) => {ndata = value.data()})
         .catchError((error) =>
             {print("Error on get data from User"), print(error.toString())});
     print(ndata);
@@ -84,9 +84,9 @@ class firestoreHelper {
 
   static Future<void> createPickup(dynamic user) async {
     final userCol = FirebaseFirestore.instance.collection('pickups');
-    String? conUser = Authservice().currentUser?.uid;
+    // String? conUser = Authservice().currentUser?.uid;
     // log(user.toString());
-    final docRef = userCol.doc(conUser);
+    // final docRef = userCol.doc(conUser);
 
     final newUser = {
       'name': user.name,
@@ -97,7 +97,7 @@ class firestoreHelper {
     };
 
     try {
-      await docRef.set(newUser);
+      // await docRef.set(newUser);
       print(json);
     } catch (e) {
       print('Error: $e');
@@ -106,12 +106,12 @@ class firestoreHelper {
 
   static Future<void> readPickup() async {
     Map<String, dynamic>? ndata;
-    String? conUser = Authservice().currentUser?.uid;
+    // String? conUser = Authservice().currentUser?.uid;
     await FirebaseFirestore.instance
         .collection('pickups')
-        .doc(conUser)
+        // .doc(conUser)
         .get()
-        .then((value) => {ndata = value.data()})
+        // .then((value) => {ndata = value.data()})
         .catchError((error) =>
             {print("Error on get data from User"), print(error.toString())});
     print(ndata);

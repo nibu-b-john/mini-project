@@ -1,41 +1,34 @@
 {
   "project_info": {
-    "project_number": "208285833598",
-    "project_id": "nemesis-hack",
-    "storage_bucket": "nemesis-hack.appspot.com"
+    "project_number": "947831482504",
+    "project_id": "food-waste-management-ap-345f0",
+    "storage_bucket": "food-waste-management-ap-345f0.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:208285833598:android:d9cfa3ae1057d6cd3bbb2f",
+        "mobilesdk_app_id": "1:947831482504:android:22a428662b51caa2bdd73d",
         "android_client_info": {
           "package_name": "com.example.nemesis_hackathon"
         }
       },
       "oauth_client": [
         {
-          "client_id": "208285833598-tpplgb02cbka0bsj0jthhp6q1p6at6gr.apps.googleusercontent.com",
+          "client_id": "947831482504-7mi7b34hhbismqiq9l83rji3l3nkin8f.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyA7_D4Tu-abFkfIYVBY3e0GQpMoIQg9Bts"
+          "current_key": "AIzaSyA8fsbSx-VwDO04oQg7ejxaLp8mxC-9P2Q"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "208285833598-tpplgb02cbka0bsj0jthhp6q1p6at6gr.apps.googleusercontent.com",
+              "client_id": "947831482504-7mi7b34hhbismqiq9l83rji3l3nkin8f.apps.googleusercontent.com",
               "client_type": 3
-            },
-            {
-              "client_id": "208285833598-0lajto8qnm8jsk8ha962dqaureqonj3j.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.example.nemesisHackathon"
-              }
             }
           ]
         }

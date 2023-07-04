@@ -7,6 +7,7 @@ import 'package:nemesis_hackathon/screens/add_entry_screen.dart';
 import 'package:nemesis_hackathon/screens/authority.dart';
 import 'package:nemesis_hackathon/screens/home_page.dart';
 import 'package:nemesis_hackathon/screens/login_screen.dart';
+import 'package:nemesis_hackathon/screens/register.dart';
 import 'package:nemesis_hackathon/screens/maps.dart';
 import 'package:nemesis_hackathon/screens/profile.dart';
 import 'package:nemesis_hackathon/screens/profile_delivery.dart';
@@ -22,8 +23,8 @@ void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Shared_Preferences.init();
   await Firebase.initializeApp(
-    options: DefaultFirebaseOptions.currentPlatform,
-  );
+      // options: DefaultFirebaseOptions.currentPlatform,
+      );
   runApp(MyApp());
 }
 
@@ -65,18 +66,19 @@ class _MyAppState extends State<MyApp> {
             ),
         home: LoginScreen(),
         routes: {
-          '/home_page_organisation': ((context) => BottomNavBar()),
-          '/home_page_delivery': ((context) => BottomNavBarDelivery()),
+          // '/home_page_organisation': ((context) => BottomNavBar()),
+          // '/home_page_delivery': ((context) => BottomNavBarDelivery()),
+          '/login': ((context) => LoginScreen()),
+          // '/home': ((context) => HomePage()),
+          // '/maps': ((context) => Maps()),
           '/logout': ((context) => LoginScreen()),
-          '/home': ((context) => HomePage()),
-          '/maps': ((context) => Maps()),
-          '/logout': ((context) => LoginScreen()),
-          '/home': ((context) => BottomNavBar()),
+          // '/home': ((context) => BottomNavBar()),
           '/profile': ((context) => ProfileScreen()),
           '/profiledelivery': ((context) => ProfileScreenDelivery()),
           '/Activity': ((context) => AcitivityScreen()),
           '/Authority': ((context) => AuthorityScreen()),
-          '/addtitle': ((context) => AddEntry())
+          '/addtitle': ((context) => AddEntry()),
+          '/register': ((context) => RegisterScreen())
         },
       ),
     );
